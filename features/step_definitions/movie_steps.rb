@@ -35,3 +35,7 @@ Then /I should see all of the movies/ do
   rows.should == num_movies
 end
 
+Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |m, d|
+  m.director.should == d
+end
+
