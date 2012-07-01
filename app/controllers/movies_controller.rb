@@ -7,7 +7,10 @@ class MoviesController < ApplicationController
   end
 
   def similar
-    @movies = Array.new
+    id = params[:id]
+    movie = Movie.find(id)
+    director = movie.director
+    @movies = Movie.find_all_by_director(director)
   end
 
   def index
