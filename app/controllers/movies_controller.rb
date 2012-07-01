@@ -10,7 +10,12 @@ class MoviesController < ApplicationController
     id = params[:id]
     movie = Movie.find(id)
     director = movie.director
-    @movies = Movie.find_all_by_director(director)
+    if director.nil? || director.strip.length==0
+      flash[:warning] = "'#{movie.title}' has no director info"
+      @movies = Movie.all
+    else
+      @movies = Movie.find_all_by_director(director)
+    end
   end
 
   def index
