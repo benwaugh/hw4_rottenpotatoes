@@ -36,6 +36,7 @@ Then /I should see all of the movies/ do
 end
 
 Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |m, d|
-  m.director.should == d
+  step %Q[I am on the details page for "#{m}"]
+  step %Q[I should see "#{d}"]
 end
 
