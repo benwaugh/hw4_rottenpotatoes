@@ -10,6 +10,9 @@ describe MoviesController do
     it 'should sort by title' do
       get :index, {:sort => 'title'}
     end
+    it 'should sort by release date' do
+      get :index, {:sort => 'release_date'}
+    end
   end
 end
 
